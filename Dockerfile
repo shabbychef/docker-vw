@@ -34,7 +34,14 @@ RUN (rm -rf /var/lib/apt/lists/* ; \
  make install ; \
  apt-get clean -y ; )
 
+
 #####################################################
+
+# vw daemon listens to port 26542 by default.
+# so expose it on anticipation of daemon mode.
+# https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments#input-options
+EXPOSE [26542]
+
 # entry and cmd# FOLDUP
 # always use array syntax:
 ENTRYPOINT ["/usr/local/bin/vw"]
